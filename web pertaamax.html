@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WG Chicken - Ahlinya Ayam & Tahu Crispy Renyah</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts Inter & Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandYellow: '#FACC15',
+                        brandYellowDark: '#EAB308',
+                        brandRed: '#E11D48',
+                        brandRedDark: '#BE123C',
+                        brandDark: '#18181B',
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glow-yellow {
+            box-shadow: 0 10px 30px -10px rgba(250, 204, 21, 0.5);
+        }
+        .glow-red {
+            box-shadow: 0 10px 30px -10px rgba(225, 29, 72, 0.4);
+        }
+        .sizzle-animation {
+            animation: sizzle 2s infinite alternate ease-in-out;
+        }
+        @keyframes sizzle {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-4px) rotate(-1deg); }
+            100% { transform: translateY(0px) rotate(1deg); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-brandYellow selection:text-black">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-brandRed text-white py-2 px-4 text-center text-xs md:text-sm font-semibold tracking-wide flex items-center justify-center gap-2">
+        <span class="bg-white text-brandRed text-[10px] px-2 py-0.5 rounded-full font-extrabold uppercase animate-pulse">PROMO</span>
+        <span>Gratis Es Teh Manis setiap pembelian Paket Combo Super Jago!</span>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-amber-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo Toko -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-2xl bg-brandYellow flex items-center justify-center font-black text-2xl text-brandDark shadow-md group-hover:rotate-6 transition-transform border-2 border-slate-900">
+                    WG
+                </div>
+                <div>
+                    <span class="text-2xl font-extrabold text-slate-900 tracking-tight leading-none block">WG CHICKEN</span>
+                    <span class="text-xs font-bold text-brandRed uppercase tracking-widest block">Ayam & Tahu Crispy</span>
+                </div>
+            </a>
+
+            <!-- Menu Navigasi Desktop -->
+            <div class="hidden md:flex items-center gap-8 font-semibold text-slate-700">
+                <a href="#hero" class="hover:text-brandRed transition-colors">Beranda</a>
+                <a href="#menu" class="hover:text-brandRed transition-colors">Daftar Menu</a>
+                <a href="#keunggulan" class="hover:text-brandRed transition-colors">Keunggulan</a>
+                <a href="#testimoni" class="hover:text-brandRed transition-colors">Testimoni</a>
+                <a href="#kontak" class="hover:text-brandRed transition-colors">Kontak</a>
+            </div>
+
+            <!-- Tombol Keranjang & WA Navbar -->
+            <div class="flex items-center gap-3">
+                <button onclick="toggleCartModal()" class="relative p-2.5 rounded-xl bg-amber-100 hover:bg-amber-200 text-slate-900 transition-colors">
+                    <i class="fa-solid fa-cart-shopping text-xl"></i>
+                    <span id="cartCountBadge" class="hidden absolute -top-1.5 -right-1.5 bg-brandRed text-white text-xs font-extrabold w-5 h-5 rounded-full flex items-center justify-center shadow-md">0</span>
+                </button>
+                <a href="https://wa.me/6281234567890?text=Halo%20WG%20Chicken,%20saya%20mau%20tanya%20menu" target="_blank" class="hidden sm:inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-xl font-bold shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Tanya WA</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative overflow-hidden bg-gradient-to-b from-amber-300 via-brandYellow to-slate-50 pt-12 pb-20 lg:pt-20 lg:pb-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Text Content -->
+                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-slate-900 text-brandYellow px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-lg">
+                        <i class="fa-solid fa-fire text-brandRed"></i>
+                        <span>Sensasi Renyah Gurih No. 1 Di Kota!</span>
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-6xl font-black text-slate-900 leading-tight tracking-tight">
+                        Kerenyahan Hakiki <br>
+                        <span class="text-brandRed relative inline-block">
+                            Ayam & Tahu Crispy
+                            <svg class="absolute w-full h-3 -bottom-1 left-0 text-brandYellowDark" viewBox="0 0 100 20" preserveAspectRatio="none">
+                                <path d="M0 15 Q 50 0 100 15" stroke="currentColor" stroke-width="6" fill="none"/>
+                            </svg>
+                        </span>
+                        Khas WG Chicken!
+                    </h1>
+                    
+                    <p class="text-slate-800 text-base sm:text-lg font-medium max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Dibuat dari daging ayam segar pilihan dan tahu lembut berkualitas tinggi, digoreng dengan bumbu rahasia super krispi hingga golden-brown. Sekali gigit, krunyabnya bikin nagih!
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#menu" class="w-full sm:w-auto bg-brandRed hover:bg-brandRedDark text-white font-extrabold px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 text-center flex items-center justify-center gap-3 border-2 border-red-800">
+                            <i class="fa-solid fa-utensils"></i>
+                            <span>Pesan Sekarang</span>
+                        </a>
+                        
+                        <button onclick="openDirectWA('General')" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 text-center flex items-center justify-center gap-3 border-2 border-emerald-800">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span>Order via WhatsApp</span>
+                        </button>
+                    </div>
+
+                    <!-- Badges -->
+                    <div class="pt-6 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0">
+                        <div class="bg-white/80 backdrop-blur-sm p-3 rounded-2xl border border-amber-200 text-center shadow-sm">
+                            <div class="text-brandRed font-black text-xl">100%</div>
+                            <div class="text-xs font-bold text-slate-700">Halal & Higienis</div>
+                        </div>
+                        <div class="bg-white/80 backdrop-blur-sm p-3 rounded-2xl border border-amber-200 text-center shadow-sm">
+                            <div class="text-brandRed font-black text-xl">Super</div>
+                            <div class="text-xs font-bold text-slate-700">Crispy Tahan Lama</div>
+                        </div>
+                        <div class="bg-white/80 backdrop-blur-sm p-3 rounded-2xl border border-amber-200 text-center shadow-sm">
+                            <div class="text-brandRed font-black text-xl">Hemat</div>
+                            <div class="text-xs font-bold text-slate-700">Mulai Rp 8 Ribu</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mascot Visual (Chef Rooster Frying Crispy Chicken & Tofu) -->
+                <div class="lg:col-span-5 relative flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <!-- Yellow Glow Background Effect -->
+                        <div class="absolute -inset-4 bg-gradient-to-r from-yellow-400 to-red-500 rounded-full blur-3xl opacity-50 sizzle-animation"></div>
+                        
+                        <!-- Illustration Card Frame -->
+                        <div class="relative bg-white p-6 rounded-3xl border-4 border-slate-900 shadow-2xl">
+                            <!-- SVG Mascot Rooster Cooking -->
+                            <svg class="w-full h-auto drop-shadow-md" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Background Circle -->
+                                <circle cx="250" cy="250" r="230" fill="#FACC15" stroke="#18181B" stroke-width="12"/>
+                                
+                                <!-- Kitchen Flames -->
+                                <path d="M120 400 Q140 330 170 370 Q200 310 230 380 Q270 320 310 390 Q360 330 380 410 Z" fill="#E11D48"/>
+                                <path d="M150 410 Q170 360 190 390 Q220 340 250 400 Q280 350 320 400 Z" fill="#F97316"/>
+
+                                <!-- Frying Wok / Kuali -->
+                                <ellipse cx="250" cy="380" rx="180" ry="45" fill="#27272A" stroke="#18181B" stroke-width="8"/>
+                                <ellipse cx="250" cy="375" rx="160" ry="35" fill="#71717A"/>
+                                <ellipse cx="250" cy="375" rx="150" ry="25" fill="#D97706" opacity="0.8"/> <!-- Golden Hot Oil -->
+                                
+                                <!-- Floating Crispy Chicken & Crispy Tofu Pieces in Wok -->
+                                <!-- Crispy Tofu Cubes -->
+                                <rect x="160" y="355" width="28" height="28" rx="4" fill="#F59E0B" stroke="#78350F" stroke-width="4" transform="rotate(15 160 355)"/>
+                                <rect x="310" y="360" width="30" height="30" rx="4" fill="#F59E0B" stroke="#78350F" stroke-width="4" transform="rotate(-20 310 360)"/>
+                                <rect x="240" y="365" width="25" height="25" rx="4" fill="#F59E0B" stroke="#78350F" stroke-width="4" transform="rotate(5 240 365)"/>
+
+                                <!-- Crispy Chicken Leg -->
+                                <path d="M190 330 Q220 310 240 340 Q210 370 180 350 Z" fill="#D97706" stroke="#78350F" stroke-width="4"/>
+                                <circle cx="180" cy="350" r="14" fill="#FEF3C7" stroke="#78350F" stroke-width="3"/>
+
+                                <!-- Crispy Drumstick Main -->
+                                <path d="M280 320 Q320 290 345 330 Q310 365 270 335 Z" fill="#D97706" stroke="#78350F" stroke-width="5"/>
+                                <circle cx="340" cy="335" r="16" fill="#FEF3C7" stroke="#78350F" stroke-width="4"/>
+
+                                <!-- Sizzle Bubbles & Sparkles -->
+                                <circle cx="210" cy="340" r="6" fill="#FFF" opacity="0.8"/>
+                                <circle cx="280" cy="350" r="8" fill="#FFF" opacity="0.8"/>
+                                <circle cx="160" cy="330" r="5" fill="#FFF" opacity="0.8"/>
+                                <circle cx="330" cy="320" r="5" fill="#FFF" opacity="0.8"/>
+
+                                <!-- Ayam Jago Koki Body -->
+                                <ellipse cx="250" cy="240" rx="90" ry="100" fill="#FFFFFF" stroke="#18181B" stroke-width="8"/>
+                                
+                                <!-- Red Chef Apron -->
+                                <path d="M190 200 L310 200 L325 310 L175 310 Z" fill="#E11D48" stroke="#18181B" stroke-width="6"/>
+                                <text x="250" y="260" font-family="Poppins" font-weight="900" font-size="28" fill="#FACC15" text-anchor="middle">WG</text>
+
+                                <!-- Head & Face -->
+                                <circle cx="250" cy="140" r="55" fill="#FFFFFF" stroke="#18181B" stroke-width="7"/>
+                                
+                                <!-- Red Crown / Jengger Ayam -->
+                                <path d="M220 95 C220 60, 240 50, 250 85 C260 50, 280 60, 280 95 Z" fill="#E11D48" stroke="#18181B" stroke-width="6"/>
+
+                                <!-- Eyes (Confident Cool Chef) -->
+                                <circle cx="230" cy="130" r="9" fill="#18181B"/>
+                                <circle cx="270" cy="130" r="9" fill="#18181B"/>
+                                <circle cx="233" cy="127" r="3" fill="#FFF"/>
+                                <circle cx="273" cy="127" r="3" fill="#FFF"/>
+                                
+                                <!-- Yellow Beak / Paruh -->
+                                <path d="M235 145 L265 145 L250 170 Z" fill="#F59E0B" stroke="#18181B" stroke-width="5"/>
+                                
+                                <!-- Red Wattle / Gelambir -->
+                                <path d="M245 170 C240 190, 260 190, 255 170 Z" fill="#E11D48" stroke="#18181B" stroke-width="4"/>
+
+                                <!-- Chef Hat (Topi Koki White) -->
+                                <path d="M210 100 Q200 40 250 40 Q300 40 290 100 Z" fill="#FFFFFF" stroke="#18181B" stroke-width="6"/>
+                                <rect x="215" y="90" width="70" height="15" fill="#E11D48" stroke="#18181B" stroke-width="4" rx="3"/>
+
+                                <!-- Right Arm Holding Frying Skimmer / Serokan -->
+                                <path d="M330 220 Q380 200 390 260" fill="none" stroke="#18181B" stroke-width="12" stroke-linecap="round"/>
+                                <path d="M330 220 Q380 200 390 260" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+                                
+                                <!-- Skimmer Tool -->
+                                <line x1="390" y1="260" x2="330" y2="340" stroke="#18181B" stroke-width="8" stroke-linecap="round"/>
+                                <circle cx="320" cy="350" r="25" fill="none" stroke="#18181B" stroke-width="6"/>
+                                <line x1="305" y1="350" x2="335" y2="350" stroke="#18181B" stroke-width="3"/>
+                                <line x1="320" y1="335" x2="320" y2="365" stroke="#18181B" stroke-width="3"/>
+                            </svg>
+
+                            <!-- Mascot Badge Label -->
+                            <div class="mt-4 bg-brandYellow border-2 border-slate-900 rounded-2xl p-3 text-center shadow-md">
+                                <span class="text-xs font-black uppercase text-slate-900 tracking-wider block">Maskot Resmi WG Chicken</span>
+                                <span class="text-sm font-extrabold text-brandRed">"Si Jago Crispy" - Jagonya Digoreng Dadakan!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- KEUNGGULAN SECTION -->
+    <section id="keunggulan" class="py-16 bg-white border-y border-amber-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-black tracking-widest text-brandRed uppercase mb-2">Mengapa Pilih Kami?</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-900">Rahasia Kerenyahan WG Chicken</p>
+                <div class="w-20 h-1.5 bg-brandYellow mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-amber-50/50 p-6 rounded-3xl border-2 border-amber-200 hover:border-brandRed transition-all hover:shadow-xl group">
+                    <div class="w-14 h-14 bg-brandYellow text-slate-900 rounded-2xl flex items-center justify-center text-2xl font-black mb-5 border-2 border-slate-900 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-drumstick-bite"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Ayam Segar Potongan Mantap</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Hanya menggunakan daging ayam potong segar harian, dimarinasi bumbu rempah spesial meresap hingga ke tulang.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-amber-50/50 p-6 rounded-3xl border-2 border-amber-200 hover:border-brandRed transition-all hover:shadow-xl group">
+                    <div class="w-14 h-14 bg-brandRed text-white rounded-2xl flex items-center justify-center text-2xl font-black mb-5 border-2 border-slate-900 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-cube"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Tahu Crispy Super Soft</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Tahu pilihan bertekstur lembut di dalam dan sangat garing renyah di luar. Bikin tidak berhenti mengunyah!
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-amber-50/50 p-6 rounded-3xl border-2 border-amber-200 hover:border-brandRed transition-all hover:shadow-xl group">
+                    <div class="w-14 h-14 bg-brandYellow text-slate-900 rounded-2xl flex items-center justify-center text-2xl font-black mb-5 border-2 border-slate-900 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-fire-flame-curved"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Digoreng Dadakan</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Pesanan disajikan hangat langsung dari wajan penggorengan panas sehingga kerenyahan bertahan maksimal.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-amber-50/50 p-6 rounded-3xl border-2 border-amber-200 hover:border-brandRed transition-all hover:shadow-xl group">
+                    <div class="w-14 h-14 bg-brandRed text-white rounded-2xl flex items-center justify-center text-2xl font-black mb-5 border-2 border-slate-900 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-pepper-hot"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Sambal & Bumbu Spesial</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Dilengkapi pilihan Sambal Geprek Pedas Tampol, Sambal Bawang, dan aneka Bumbu Tabur favorit keluarga.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU SECTION -->
+    <section id="menu" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-xs font-black tracking-widest text-brandRed uppercase mb-2">Pilihan Terlezat</h2>
+                    <p class="text-3xl sm:text-5xl font-black text-slate-900">Menu & Harga WG Chicken</p>
+                    <p class="text-slate-600 text-sm mt-2">Pilih menu favoritmu dan pesan langsung via WhatsApp!</p>
+                </div>
+
+                <!-- Filter Category Buttons -->
+                <div class="flex flex-wrap gap-2 mt-6 md:mt-0">
+                    <button onclick="filterMenu('all')" class="menu-filter-btn active bg-slate-900 text-brandYellow font-bold px-4 py-2 rounded-xl text-sm transition-all">Semua</button>
+                    <button onclick="filterMenu('ayam')" class="menu-filter-btn bg-white text-slate-700 hover:bg-amber-100 font-bold px-4 py-2 rounded-xl text-sm border border-slate-200 transition-all">Ayam Crispy</button>
+                    <button onclick="filterMenu('tahu')" class="menu-filter-btn bg-white text-slate-700 hover:bg-amber-100 font-bold px-4 py-2 rounded-xl text-sm border border-slate-200 transition-all">Tahu Crispy</button>
+                    <button onclick="filterMenu('paket')" class="menu-filter-btn bg-white text-slate-700 hover:bg-amber-100 font-bold px-4 py-2 rounded-xl text-sm border border-slate-200 transition-all">Paket Hemat</button>
+                    <button onclick="filterMenu('minuman')" class="menu-filter-btn bg-white text-slate-700 hover:bg-amber-100 font-bold px-4 py-2 rounded-xl text-sm border border-slate-200 transition-all">Minuman</button>
+                </div>
+            </div>
+
+            <!-- MENU GRID -->
+            <div id="menuContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Items will be injected by JS dynamically -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BANNER PROMO / BANNER KHUSUS TAHOE & CHICKEN -->
+    <section class="py-16 bg-gradient-to-r from-slate-900 via-zinc-900 to-slate-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-brandYellow/10 border-2 border-brandYellow/30 p-8 sm:p-12 rounded-3xl backdrop-blur-md grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-8 space-y-4">
+                    <span class="bg-brandRed text-white text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">Spesial Cita Rasa Khas</span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-brandYellow leading-tight">
+                        Kombinasi Sempurna Ayam Crispy + Tahu Crispy!
+                    </h2>
+                    <p class="text-slate-300 text-base">
+                        Bingung pilih ayam atau tahu? Pesan **Paket Combo Super Jago**! Sudah dapat Ayam Crispy + Tahu Crispy + Nasi Pulen + Sambal pilihan & Es Teh Segar.
+                    </p>
+                </div>
+                <div class="lg:col-span-4 text-center lg:text-right">
+                    <button onclick="openDirectWA('Paket Combo Super Jago')" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-brandYellow hover:bg-amber-400 text-slate-900 font-black px-8 py-4 rounded-2xl text-lg shadow-xl hover:scale-105 transition-all">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <span>Pesan Combo Rp 22.000</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONI SECTION -->
+    <section id="testimoni" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-black tracking-widest text-brandRed uppercase mb-2">Kata Pelanggan</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-900">Apa Kata Mereka Tentang WG Chicken?</p>
+                <div class="w-20 h-1.5 bg-brandYellow mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testi 1 -->
+                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200 relative shadow-sm">
+                    <div class="flex text-amber-400 mb-4 text-sm gap-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic text-sm mb-6">
+                        "Tahu crispy-nya beneran nagih parah! Tepungnya renyah banget tapi dalamnya tetap lembut. Bumbu balado pedas manisnya pas di lidah!"
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brandYellow font-extrabold text-slate-900 flex items-center justify-center">R</div>
+                        <div>
+                            <div class="font-bold text-slate-900 text-sm">Rian Pratama</div>
+                            <div class="text-xs text-slate-500">Pelanggan Setia</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testi 2 -->
+                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200 relative shadow-sm">
+                    <div class="flex text-amber-400 mb-4 text-sm gap-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic text-sm mb-6">
+                        "Ayam crispy gepreknya mantap abis. Dagingnya juicy, tepung krispinya tebal dan gurih meresap. Harganya sangat bersahabat buat kantong."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-brandRed text-white font-extrabold flex items-center justify-center">S</div>
+                        <div>
+                            <div class="font-bold text-slate-900 text-sm">Siti Nurhaliza</div>
+                            <div class="text-xs text-slate-500">Mahasiswi</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testi 3 -->
+                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-200 relative shadow-sm">
+                    <div class="flex text-amber-400 mb-4 text-sm gap-1">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-700 italic text-sm mb-6">
+                        "Pesan via WhatsApp responnya cepat banget. Masih hangat pas sampai rumah. Tahu dan ayam crispy-nya masih renyah kress!"
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-slate-900 text-brandYellow font-extrabold flex items-center justify-center">B</div>
+                        <div>
+                            <div class="font-bold text-slate-900 text-sm">Budi Santoso</div>
+                            <div class="text-xs text-slate-500">Wirausaha</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAK & LOKASI SECTION -->
+    <section id="kontak" class="py-20 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <h2 class="text-xs font-black tracking-widest text-brandYellow uppercase">Hubungi & Kunjungi Kami</h2>
+                    <h3 class="text-3xl sm:text-5xl font-black text-white leading-tight">
+                        Siap Memanjakan Lidah Anda Setiap Hari!
+                    </h3>
+                    <p class="text-slate-400 text-base leading-relaxed">
+                        Menerima pesanan untuk makan di tempat, bawa pulang, hingga pesanan dalam jumlah besar untuk acara pesta, ulang tahun, dan syukuran.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-brandYellow/10 border border-brandYellow text-brandYellow flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-bold uppercase">Contact Person (WhatsApp)</div>
+                                <div class="text-xl font-extrabold text-white">0812-3456-7890</div>
+                                <div class="text-xs text-emerald-400 font-medium">Online & Ready Order</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-brandRed/10 border border-brandRed text-brandRed flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-bold uppercase">Jam Operasional</div>
+                                <div class="text-lg font-bold text-white">Setiap Hari: 09.00 - 21.30 WIB</div>
+                                <div class="text-xs text-slate-400">Gorengan selalu hangat & segar</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-2xl bg-brandYellow/10 border border-brandYellow text-brandYellow flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400 font-bold uppercase">Alamat Outlet WG Chicken</div>
+                                <div class="text-base font-bold text-white">Jl. Kuliner Renyah No. 88, Kota Kuliner, Indonesia</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="https://wa.me/6281234567890?text=Halo%20WG%20Chicken,%20saya%20mau%20pesan%20menu" target="_blank" class="inline-flex items-center justify-center gap-3 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold px-8 py-4 rounded-2xl shadow-xl transition-all">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span>Chat Langsung via WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Form Fast Order / WhatsApp Order Box -->
+                <div class="lg:col-span-6 bg-white text-slate-900 p-8 rounded-3xl border-4 border-brandYellow shadow-2xl">
+                    <h4 class="text-2xl font-black text-slate-900 mb-2">Form Order Cepat WA</h4>
+                    <p class="text-sm text-slate-600 mb-6">Isi data singkat untuk pengiriman pesanan kamu:</p>
+
+                    <form onsubmit="sendQuickFormWA(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-extrabold uppercase text-slate-700 mb-1">Nama Pemesan</label>
+                            <input type="text" id="custName" required placeholder="Contoh: Budi Pratama" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brandRed focus:ring-2 focus:ring-brandRed/20 text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-extrabold uppercase text-slate-700 mb-1">Pesanan Utama</label>
+                            <select id="custOrderSelect" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brandRed focus:ring-2 focus:ring-brandRed/20 text-sm font-semibold">
+                                <option value="Paket Ayam Crispy + Nasi (Rp 15.000)">Paket Ayam Crispy + Nasi (Rp 15.000)</option>
+                                <option value="Tahu Crispy Original Box (Rp 8.000)">Tahu Crispy Original Box (Rp 8.000)</option>
+                                <option value="Tahu Crispy Pedas Manis Box (Rp 10.000)">Tahu Crispy Pedas Manis Box (Rp 10.000)</option>
+                                <option value="Paket Combo Super Jago (Rp 22.000)">Paket Combo Super Jago (Rp 22.000)</option>
+                                <option value="Kulit Ayam Crispy Snacking (Rp 10.000)">Kulit Ayam Crispy Snacking (Rp 10.000)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-extrabold uppercase text-slate-700 mb-1">Tingkat Pedas / Catatan Sambal</label>
+                            <input type="text" id="custNote" placeholder="Contoh: Sambal Geprek Pedas Banget / Sedang" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brandRed focus:ring-2 focus:ring-brandRed/20 text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-extrabold uppercase text-slate-700 mb-1">Alamat Pengiriman</label>
+                            <textarea id="custAddress" rows="2" required placeholder="Tuliskan alamat lengkap..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brandRed focus:ring-2 focus:ring-brandRed/20 text-sm"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-brandRed hover:bg-brandRedDark text-white font-black py-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-3 text-base">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Kirim Order Ke WhatsApp Toko</span>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 text-slate-400 py-10 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-brandYellow text-slate-900 flex items-center justify-center font-black text-sm">WG</div>
+                <span class="font-bold text-white text-sm">WG Chicken © 2026. All Rights Reserved.</span>
+            </div>
+            <p class="text-xs text-slate-500">Rajanya Ayam & Tahu Crispy Renyah Gurih</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/6281234567890?text=Halo%20WG%20Chicken,%20saya%20ingin%20memesan%20Ayam%20%26%20Tahu%20Crispy!" 
+       target="_blank" 
+       class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white p-4 rounded-full shadow-2xl flex items-center justify-center transition-transform hover:scale-110 border-2 border-white group">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+        <span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 ease-in-out whitespace-nowrap text-sm font-extrabold pl-0 group-hover:pl-2">Pesan WA Now</span>
+    </a>
+
+    <!-- SHOPPING CART MODAL DRAWER -->
+    <div id="cartModal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden flex justify-end">
+        <div class="bg-white w-full max-w-md h-full flex flex-col shadow-2xl animate-slide-left">
+            <!-- Modal Header -->
+            <div class="bg-slate-900 text-white p-5 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-basket-shopping text-brandYellow text-xl"></i>
+                    <h3 class="font-extrabold text-lg">Keranjang Pesanan</h3>
+                </div>
+                <button onclick="toggleCartModal()" class="text-slate-400 hover:text-white text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Cart Items List -->
+            <div id="cartItemsList" class="flex-1 p-5 overflow-y-auto space-y-4">
+                <!-- Items injected via JS -->
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-5 border-t border-slate-200 bg-slate-50 space-y-4">
+                <div class="flex items-center justify-between text-base font-extrabold text-slate-900">
+                    <span>Total Subtotal:</span>
+                    <span id="cartTotalPrice" class="text-brandRed text-xl">Rp 0</span>
+                </div>
+                
+                <button onclick="checkoutToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-3 text-base">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i>
+                    <span>Kirim Pesanan Ke WhatsApp</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Data Produk Toko WG Chicken
+        const menuData = [
+            {
+                id: 1,
+                name: "Paket Ayam Crispy + Nasi",
+                category: "ayam",
+                price: 15000,
+                desc: "Ayam Goreng Crispy Dada/Paha + Nasi Pulen + Sambal Geprek/Bawang Mantap.",
+                badge: "Terfavorit",
+                icon: "fa-drumstick-bite",
+                color: "bg-amber-500"
+            },
+            {
+                id: 2,
+                name: "Ayam Crispy Ala Carte",
+                category: "ayam",
+                price: 11000,
+                desc: "1 Potong Ayam Crispy Dada/Paha Tepung Renyah Bumbu Meresap.",
+                badge: "Best Value",
+                icon: "fa-fire",
+                color: "bg-red-500"
+            },
+            {
+                id: 3,
+                name: "Tahu Crispy Original (Box)",
+                category: "tahu",
+                price: 8000,
+                desc: "10 Pcs Tahu Crispy Super Renyah Gurih diluar, lembut di dalam + Bumbu Tabur.",
+                badge: "Renyah Pol",
+                icon: "fa-cube",
+                color: "bg-yellow-500"
+            },
+            {
+                id: 4,
+                name: "Tahu Crispy Pedas Manis (Box)",
+                category: "tahu",
+                price: 10000,
+                desc: "Tahu Crispy disiram Saus Pedas Manis Spesial Khas WG Chicken.",
+                badge: "Revisi Spesial",
+                icon: "fa-pepper-hot",
+                color: "bg-red-600"
+            },
+            {
+                id: 5,
+                name: "Paket Combo Super Jago",
+                category: "paket",
+                price: 22000,
+                desc: "1 Ayam Crispy + 5 Tahu Crispy + Nasi + Es Teh Manis Jumbo.",
+                badge: "Komplit & Hemat",
+                icon: "fa-star",
+                color: "bg-emerald-600"
+            },
+            {
+                id: 6,
+                name: "Kulit Ayam Crispy Snacking",
+                category: "ayam",
+                price: 10000,
+                desc: "Kulit Ayam Goreng Super Extra Renyah dengan Taburan Bumbu Gurih.",
+                badge: "Cemilan Khas",
+                icon: "fa-bowl-food",
+                color: "bg-orange-500"
+            },
+            {
+                id: 7,
+                name: "Es Teh Manis Jumbo",
+                category: "minuman",
+                price: 4000,
+                desc: "Es Teh Manis Segar Pemadam Pedas Kemasan Jumbo.",
+                badge: "Segar",
+                icon: "fa-glass-water",
+                color: "bg-blue-500"
+            },
+            {
+                id: 8,
+                name: "Es Jeruk Peras Alami",
+                category: "minuman",
+                price: 5000,
+                desc: "Jeruk Peras Alami Segar Asli Penuh Vitamin C.",
+                badge: "Sehat Segar",
+                icon: "fa-lemon",
+                color: "bg-amber-400"
+            }
+        ];
+
+        let cart = [];
+        const waPhoneNumber = "6281234567890";
+
+        // Render Menu Cards
+        function renderMenu(filter = 'all') {
+            const container = document.getElementById('menuContainer');
+            container.innerHTML = '';
+
+            const filteredMenu = filter === 'all' 
+                ? menuData 
+                : menuData.filter(item => item.category === filter);
+
+            filteredMenu.forEach(item => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-3xl p-5 border-2 border-slate-200 hover:border-brandYellow transition-all hover:shadow-xl flex flex-col justify-between group";
+                card.innerHTML = `
+                    <div>
+                        <div class="relative h-44 rounded-2xl bg-amber-100 flex items-center justify-center overflow-hidden mb-4 border border-amber-200">
+                            <!-- Placeholder Graphic Symbol -->
+                            <div class="w-20 h-20 rounded-full ${item.color} text-white flex items-center justify-center text-4xl shadow-lg transform group-hover:scale-110 transition-transform">
+                                <i class="fa-solid ${item.icon}"></i>
+                            </div>
+                            <span class="absolute top-3 right-3 bg-brandRed text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase shadow-md">
+                                ${item.badge}
+                            </span>
+                        </div>
+                        <h3 class="font-extrabold text-slate-900 text-lg mb-1 group-hover:text-brandRed transition-colors">${item.name}</h3>
+                        <p class="text-slate-500 text-xs leading-relaxed mb-4">${item.desc}</p>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] font-bold text-slate-400 block uppercase">Harga</span>
+                            <span class="font-black text-slate-900 text-lg">Rp ${item.price.toLocaleString('id-ID')}</span>
+                        </div>
+                        <button onclick="addToCart(${item.id})" class="bg-brandYellow hover:bg-amber-400 text-slate-900 font-extrabold px-4 py-2.5 rounded-xl text-xs flex items-center gap-2 shadow-md hover:shadow-lg transition-all">
+                            <i class="fa-solid fa-plus"></i>
+                            <span>Tambah</span>
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Filter Buttons Styling
+        function filterMenu(category) {
+            renderMenu(category);
+            const buttons = document.querySelectorAll('.menu-filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-slate-900', 'text-brandYellow');
+                btn.classList.add('bg-white', 'text-slate-700');
+            });
+            event.currentTarget.classList.remove('bg-white', 'text-slate-700');
+            event.currentTarget.classList.add('bg-slate-900', 'text-brandYellow');
+        }
+
+        // Cart Actions
+        function addToCart(id) {
+            const product = menuData.find(item => item.id === id);
+            const existing = cart.find(item => item.id === id);
+            
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ ...product, qty: 1 });
+            }
+
+            updateCartUI();
+            toggleCartModal(true);
+        }
+
+        function changeQty(id, delta) {
+            const index = cart.findIndex(item => item.id === id);
+            if (index !== -1) {
+                cart[index].qty += delta;
+                if (cart[index].qty <= 0) {
+                    cart.splice(index, 1);
+                }
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartList = document.getElementById('cartItemsList');
+            const badge = document.getElementById('cartCountBadge');
+            const totalPriceEl = document.getElementById('cartTotalPrice');
+
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+            // Update Badge
+            if (totalItems > 0) {
+                badge.innerText = totalItems;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+
+            // Update Total Price
+            totalPriceEl.innerText = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+
+            // Render Cart Items
+            if (cart.length === 0) {
+                cartList.innerHTML = `
+                    <div class="text-center py-12 text-slate-400">
+                        <i class="fa-solid fa-basket-shopping text-5xl mb-3 text-slate-300"></i>
+                        <p class="font-bold text-sm">Keranjang kamu masih kosong</p>
+                        <p class="text-xs">Pilih menu favoritmu di atas!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            cartList.innerHTML = cart.map(item => `
+                <div class="flex items-center justify-between p-3 bg-amber-50/60 rounded-2xl border border-amber-200">
+                    <div>
+                        <div class="font-bold text-slate-900 text-sm">${item.name}</div>
+                        <div class="text-xs text-brandRed font-extrabold">Rp ${(item.price * item.qty).toLocaleString('id-ID')}</div>
+                    </div>
+                    <div class="flex items-center gap-2 bg-white px-2 py-1 rounded-xl border border-slate-300">
+                        <button onclick="changeQty(${item.id}, -1)" class="w-6 h-6 flex items-center justify-center font-bold text-slate-700 hover:text-brandRed">-</button>
+                        <span class="font-black text-xs text-slate-900 w-4 text-center">${item.qty}</span>
+                        <button onclick="changeQty(${item.id}, 1)" class="w-6 h-6 flex items-center justify-center font-bold text-slate-700 hover:text-brandRed">+</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleCartModal(forceOpen = false) {
+            const modal = document.getElementById('cartModal');
+            if (forceOpen) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.toggle('hidden');
+            }
+        }
+
+        // Checkout Cart to WhatsApp
+        function checkoutToWhatsApp() {
+            if (cart.length === 0) {
+                alert("Keranjang pesanan kamu masih kosong!");
+                return;
+            }
+
+            let message = "*HALO WG CHICKEN, SAYA INGIN MEMESAN:*\n\n";
+            let total = 0;
+
+            cart.forEach((item, i) => {
+                const sub = item.price * item.qty;
+                total += sub;
+                message += `${i + 1}. ${item.name} (${item.qty}x) = Rp ${sub.toLocaleString('id-ID')}\n`;
+            });
+
+            message += `\n*TOTAL PESANAN:* Rp ${total.toLocaleString('id-ID')}\n`;
+            message += `------------------------------------\n`;
+            message += `Mohon konfirmasi ketersediaan & ongkir ya kak! Terimakasih! 🍗✨`;
+
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${waPhoneNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        // Direct Quick Form Order WA
+        function sendQuickFormWA(e) {
+            e.preventDefault();
+            const name = document.getElementById('custName').value;
+            const order = document.getElementById('custOrderSelect').value;
+            const note = document.getElementById('custNote').value || '-';
+            const address = document.getElementById('custAddress').value;
+
+            const message = `*HALO WG CHICKEN (ORDER CEPAT)*\n\n` +
+                `👤 *Nama Pemesan:* ${name}\n` +
+                `🍗 *Menu Pesanan:* ${order}\n` +
+                `🌶️ *Catatan Sambal/Pedas:* ${note}\n` +
+                `📍 *Alamat Pengiriman:* ${address}\n\n` +
+                `Mohon segera diproses ya kak! Terima kasih! 🙌`;
+
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${waPhoneNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        // Direct WA button for specific menu
+        function openDirectWA(menuName) {
+            const message = `Halo WG Chicken, saya ingin memesan *${menuName}*. Bisakah dibantu?`;
+            window.open(`https://wa.me/${waPhoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // Init Page
+        window.onload = function() {
+            renderMenu('all');
+        }
+    </script>
+</body>
+</html>
